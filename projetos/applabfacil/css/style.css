@@ -105,14 +105,19 @@ section.flex-d{
 .flex-d li{
     background-color: #00a300;
     margin-bottom: 10px;
-    padding: 8px;
+    padding-top: 8px;
+    padding-right: 8px;
+    padding-bottom: 8px;
+    padding-left: 8px;
     height: 35px;
-    width: 100%;
+    width: 200px;
     text-align: center;
     font-size: 1.3em;
     font-weight: bold;
     list-style: none;
     border-radius: 10px;
+    display: flex;
+    justify-content: center;
 }
 
 .flex-d li:hover{
@@ -134,7 +139,7 @@ section.flex-d{
     padding: 0px;
 }
 
-@media(max-width: 800px){
+@media(max-width: 630px){
     .container{
         flex-direction: column-reverse;
     }
@@ -142,11 +147,15 @@ section.flex-d{
     .flex-d ul{
         flex-direction: row;
         max-width: 100%;
+        max-height: 80%;
     }
 
     .flex-d li{
         margin-right: 10px;
         height: 50px;
+        align-items: center;
+        padding-top: 5px;
+        padding-bottom: 5px;
     }
 
     .flex-d a{
@@ -156,6 +165,10 @@ section.flex-d{
     
     .center{
         align-items: end;
+    }
+
+    section.voltar{
+        height: 40px;
     }
 
 
