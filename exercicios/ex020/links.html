@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Links</title>
+    <style>
+        a{
+            color: white;
+            background-color: #008088 ;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        a:visited{
+            background-color: wheat;
+            color: black;
+        }
+        a:hover{
+            text-decoration: underline;
+            color: white;
+            background-color: #01666d;
+        }
+        .cliente::after{
+            content: ' @';
+            
+        }
+        .pagamento::after{
+            content: ' $';
+        }
+        .config::after{
+            content: ' #';
+        }
+    </style>
+
+</head>
+<body>
+    <li><a href="pagina2.html" class="cliente">Clientes</a></li>
+    <li><a href="pagina3.html" class="pagamento">Pagamentos</a></li>
+    <li><a href="pagina4.html" class="config">Configurações</a></li>
+    
+</body>
+</html>

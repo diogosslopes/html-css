@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pseudo-Classes</title>
+    <style>
+        .d1{
+            background-color: #008088;
+            text-align: center;
+            width: 200px;
+            height: 200px;
+            border: 1px solid black;
+            display: inline-block;
+
+        }
+        .d1:hover {
+            background-color: #EED220;
+        }
+
+        .d2 > p {
+            display: none;
+        }
+
+        .d2:hover > p{
+            display: block;
+            background-color: red;
+            color: black;
+            width: 200px;
+            /* hover: efeitos ao passar o mouse em cima.
+            
+            .d2 > p (Altera apenas o <p> dentro da .d2) */
+
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="d1">01</div>
+    <div class="d1">02</div>
+    <div class="d1">03</div>
+
+    <h1>Exemplo de hover</h1>
+    <p>Passe o mouse no texto abaixo e veja o que acontece.</p>
+
+    <div class="d2">
+        Passe o mouse aqui
+        <p>Surpresa !!!</p>
+    </div>
+
+    <p>Fim da pagina</p>
+    
+</body>
+</html>
