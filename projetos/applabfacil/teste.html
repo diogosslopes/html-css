@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200&display=swap');    
+
+        :root{ 
+            --fonte: font-family: 'Nunito Sans', cursive;
+            }
+
+            *{
+                font-family: 'Nunito Sans', cursive;
+            }
+        
+        main{
+            max-width: 800px;
+            height: 571px;
+            margin: auto;
+            border-radius: 10px;
+            position: relative;
+            }
+
+            .fundo{
+                border-radius: 10px;
+                position: absolute;
+                z-index: -1;
+                max-width: auto;
+                height: 100%;                
+            }
+
+            .container {
+                display: flex;
+                flex-direction: row;
+                height: 480px;
+            }
+
+            .flex{
+                display: flex;
+                flex-direction: column;
+            }
+            main img{
+                width: 100%;
+            }
+
+            header{
+                height: 70px;
+                max-width: 800px;
+                text-align: center;
+                background-color: lightgreen;
+                border-radius: 5px 5px 0px 0px;
+            }
+
+            h1{
+                color: white;
+                font-size: 1.8em;
+            }
+            
+            .flex-e{
+                width: 290px;
+            }
+            .flex-d{
+                width: 490px;
+                align-items: center;
+                display: flex;
+                justify-content: center;
+            }
+            ul{
+                position: absolute;
+                
+            }
+            .logofacil{
+                width: 90%;
+                padding-left: 3px;
+            }
+
+            .logocentrolab{
+               width:  90%;
+               padding-left: 3px;
+            }
+
+            a{
+                text-decoration: none;
+                color: white;
+                font-weight: 700;
+                
+            }
+
+            a:visited{
+                color: white;
+            }
+
+            li{
+                list-style: none;
+            }
+            .menu{
+                display: flex;
+                flex-direction: column;
+                width: 200px;
+                padding: 0;
+                margin: 0;
+                
+            }
+
+            .menu li{
+                background-color: green;
+                color: white;
+                max-width: 200px;
+                max-height: 35px;
+                padding: 5px;
+                text-align: center;
+                font-size: 1.3em;
+                margin-bottom: 6px;
+                border-radius: 6px;
+                padding: 8px;
+                
+            }
+
+            footer{
+                color: white;
+                padding-left: 3px;
+            }
+
+
+
+
+
+    </style>
+</head>
+<body>
+
+    <main class="flex">
+        <header>
+            <h1>Olá Fulano, seja bem vindo !</h1>
+        </header>
+        <img class="fundo"  src="imagens/telainicialsemlogo800x571.png" alt="">
+        <section class="container">
+            <section class="flex-e">
+                <img class="logofacil" src="imagens/logofacil300x106.png" alt="">
+                <img class="logocentrolab" src="imagens/centrolab300x78.png" alt="">
+            </section>
+            <section class="flex-d">
+                <ul class="menu">
+                    <li><a href="telainicialchamdo.html">Chamados</a></li>
+                    <li><a href="telainicialcoleta.html">Coleta Externa</a></li>
+                    <li><a href="#">Voucher</a></li>
+                    <li><a href="#">Pedidos</a></li>
+                    <li><a href="#">Reembolso</a></li>
+                </ul>
+            </section>
+        </section>
+        <footer>Versão: 2.0</footer>
+    </main>
+    
+</body>
+</html>
