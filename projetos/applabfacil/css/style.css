@@ -107,7 +107,23 @@ main{
         margin-bottom: 6px;
         border-radius: 6px;
         padding: 8px;
+        display: flex;
+        flex-direction: column;
         
+    }
+
+    .menu li:hover{
+        background-color: #136b297c;
+    }
+
+    .menu  li:hover::after {
+        content: "";
+        max-width: 90%;
+        max-height: 2px;
+        background-color: white;
+        padding: 1px;
+        margin-left: 4px;
+ 
     }
 
     footer{
