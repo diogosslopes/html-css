@@ -78,6 +78,7 @@ main{
         color: white;
         font-weight: 700;
         
+        
     }
 
     a:visited{
@@ -110,10 +111,13 @@ main{
         display: flex;
         flex-direction: column;
         
+        
     }
 
     .menu li:hover{
         background-color: #136b297c;
+        transition-duration: 1.2s;
+        
     }
 
     .menu  li:hover::after {
@@ -123,6 +127,7 @@ main{
         background-color: white;
         padding: 1px;
         margin-left: 4px;
+        
  
     }
 
