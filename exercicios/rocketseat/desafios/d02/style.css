@@ -1,0 +1,18 @@
+@import "UTF-8";
+
+main{
+    display: flex;
+    gap: 1rem;
+}
+
+.coluna{
+    min-height: 70vh;
+    border: 2px solid;
+}
+
+section{
+    flex-basis: 25%;
+}
+aside{
+    flex-grow: 1;
+}

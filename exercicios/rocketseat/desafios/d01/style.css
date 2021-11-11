@@ -1,0 +1,28 @@
+@import "UTF-8";
+
+*{
+    margin: 0;
+}
+
+header{
+    background-color: lightgreen;
+    padding: 20px;
+}
+
+nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+ul{
+    display: flex;
+    gap: .8rem;
+    list-style: none;
+    align-items: center;
+}
+
+ul li:last-child{
+    background-color: green;
+    padding: 5px;
+}

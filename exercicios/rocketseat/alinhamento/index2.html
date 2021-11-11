@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        main{
+            min-height: 70vh;
+            border: 2px solid;
+            display: flex;
+        }
+
+        aside{
+            background-color: lightgrey;
+            flex-grow: 1;
+        }
+
+        section{
+            background-color: lightsalmon;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 2;
+        }
+
+        section article:nth-child(1){
+            background-color: lightseagreen;
+            flex-grow: 2;
+            flex-shrink: 2;
+        }
+
+        section article:nth-child(2){
+            background-color: lightskyblue;
+            flex-basis: 70%;
+        }
+
+        section article:nth-child(3){
+            background-color: lightcoral;
+            flex-grow: 1;
+            flex-shrink: 0;
+        }
+    </style>
+
+</head>
+<body>
+    <main class="page">
+        <aside>
+            Aside
+        </aside>
+        <section>
+            section
+            <article>Article 1</article>
+            <article>Article 1</article>
+            <article>Article 1</article>
+        </section>
+    </main>
+
+    
+</body>
+</html>

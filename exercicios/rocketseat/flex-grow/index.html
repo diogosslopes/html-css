@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            border: 1px dashed red;
+            display: flex;
+            height: 150px;
+            
+        
+        }
+
+        .box div:nth-child(1),
+        .box div:nth-child(2){
+            border: 1px solid;
+            flex-grow: 3; /*aumenta o tamanho do elemento pegando o espaço vazio e dividindo entre os itens que devem crescer, respeitando a quantidade de quador que tal item deve crescer*/
+
+        }
+
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="item">A</div>
+        <div class="item">B</div>
+        <div class="item">C</div>
+        <div class="item">D</div>
+    </div>
+    
+</body>
+</html>
