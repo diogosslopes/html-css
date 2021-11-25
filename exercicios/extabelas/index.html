@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trabalhando com Tabelas</title>
+
+    <style>
+        td{
+            text-align: center;
+        }
+        #col1{
+            background-color: blue;
+        }
+        #col2{
+            background-color: red;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>Tabelas</h1>
+
+    <table>
+        <caption>Produzidos x Vendidos</caption>
+        <colgroup>
+            <col>
+            <col span="2" id="col1">
+            <col span="2" id="col2">
+        </colgroup>
+        <thead>
+            <tr>
+                <th rowspan="2"></th>
+                <th colspan="2" scope="colgroup">Loja 1</th>
+                <th colspan="2" scope="colgroup">Loja 2</th>
+            </tr>
+            <tr>
+                <th scope="col">Produzidos</th>
+                <th scope="col">Vendidos</th>
+                <th scope="col">Produzidos</th>
+                <th scope="col">Vendidos</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr>
+                <th scope="row">Produto 1</th>
+                <td>20</td>
+                <td>10</td>
+                <td>15</td>
+                <td>14</td>
+            </tr>
+            <tr>
+                <th scope="row">Produto 2</th>
+                <td>15</td>
+                <td>15</td>
+                <td>15</td>
+                <td>2</td>
+            </tr>
+        </tbody>
+
+    </table>
+    
+</body>
+</html>
