@@ -12,7 +12,9 @@ botoes: f8f9fa
 rodape: f2f2f2
 */
 
-
+body{
+    height: 100vh;
+}
 
 a{
     text-decoration: none;
@@ -67,6 +69,14 @@ main input{
     font-size: 18pt;
     padding-left: 10px;
     text-decoration: none;
+    flex-grow: 2;
+       
+}
+
+#abbr{
+    display: flex;
+    justify-content:  left;
+    flex-grow: 2;
 }
 
 input:focus-visible{
@@ -78,6 +88,8 @@ abbr{
     width: 100%;
     justify-content: center;
 }
+
+
 
 main aside{
     display: flex;
@@ -110,7 +122,9 @@ footer{
     gap: 1;
     justify-content: end;  
     background-color: #DFE1E5;
-    margin-top: 198px;
+    bottom: 0;
+    position: fixed;
+    width: 100%;
     
 }
 
