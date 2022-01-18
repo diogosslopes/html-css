@@ -60,10 +60,26 @@ section.normal{
 section.imagem{
     background-color: grey;
     color: black;
+    box-shadow: inset 6px 6px 13px 0px rgba(0, 0, 0, 0.5);
 
 }
 
 section.imagem p {
     background-color: rgba(0, 0, 0, 0.158);
     display: inline-block;
+}
+
+section p{
+    padding-bottom: 2em;
+}
+
+#img01{
+    color: white;
+    background-size: 100vw;
+    background: black url(imagens/background001.jpg) center no-repeat fixed
+}
+
+#img02{
+    background-size: 100vw;
+    background: black url(imagens/background002.jpg) center no-repeat fixed
 }
