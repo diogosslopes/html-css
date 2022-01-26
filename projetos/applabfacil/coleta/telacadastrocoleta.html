@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coleta Externa</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <main class="flex">
+        <header>
+            <h1>Olá Fulano, seja bem vindo !</h1>
+        </header>
+        
+        <section class="container">
+            <section class="flex-e cadcoleta-e">
+                <div class="formsbtn">
+                    <button onclick="save()">Salvar</button>
+                    <button onclick="clearForm()">Limpar</button>
+                </div>
+            </section>
+            <section class="flex-d cadcoleta-d">
+                <div class="dateTimeInput">
+                    <div>
+                        <label for="date">Data</label>
+                        <input type="date" name="date" id="date">
+                    </div>
+                    <div>
+                        <label for="time">Horario</label>
+                        <input type="time" name="time" id="time">
+                    </div>
+                </div>
+                <div class="pacientDataInput">
+                    <div class="pacientDataInput-L">
+                        <label for="name">Nome</label>
+                        <input type="text" name="name" id="name">
+
+                        <label for="cpf">CPF</label>
+                        <input type="text" name="cpf" id="cpf">
+
+                        <label for="cep">CEP</label>
+                        <input type="text" name="cep" id="cep">
+
+                        <label for="end">Logradouro</label>
+                        <input type="text" name="end" id="end">
+
+                        <label for="city">Cidade</label>
+                        <input type="text" name="city" id="city">
+                    </div>
+                    <div class="pacientDataInput-R">
+                        <label for="birth">Data de Nascimento</label>
+                        <input type="date" name="birth" id="birth">
+
+                        <label for="tel">Telefone</label>
+                        <input type="tel" name="tel" id="phone">
+
+                        <label for="number">Numero</label>
+                        <input type="text" name="number" id="number">
+
+                        <label for="bairro">Bairro</label>
+                        <input type="text" name="bairro" id="bairro">
+
+                        <label for="reference">Referencia</label>
+                        <input type="text" name="reference" id="reference">
+                    </div>
+                </div>
+                <div class="pacientPaymentInput">
+                    <div class="pacientPaymentInput-L">
+                        <label for="vExames">Valor Exames</label>
+                        <input type="number" name="vExames" id="vExames">
+                        <label for="vTaxa">Valor Taxa</label>
+                        <input type="number" name="vTaxa" id="vTaxa">
+                        <label for="vTotal">Valor Total</label>
+                        <input type="number" name="vTotal" id="vTotal">
+                        <label for="pago">Situação</label>
+                        <div>
+                            <input type="radio" name="pago" value="pago" id="pago">Pago
+                            <input type="radio" name="aPagar" value="aPagar" id="aPagar">À Pagar
+                        </div>
+                    </div>
+                    <div class="pacientPaymentInput-R">
+                        <label for="obs">Observações</label>
+                        <input type="text" name="obs" id="obs">
+                    </div>
+                </div>
+            </section>
+        </section>
+        
+    </main>
+    <footer><a href="telainicialcoleta.html">&#8656</a></footer>
+
+    <script src="scriptColeta.js"></script>
+</body>
+</html>
