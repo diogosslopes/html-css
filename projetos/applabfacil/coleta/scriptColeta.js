@@ -64,6 +64,10 @@ function save(){
     cadColeta.push(addColeta)
 
     localStorage.setItem("dadosColeta", JSON.stringify(newColeta))
+
+
+    
+    
     
     
     clearForm()

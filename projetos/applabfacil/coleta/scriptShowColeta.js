@@ -6,10 +6,9 @@ function showColetas(){
     coletasCadastradas = JSON.parse(localStorage.dadosColeta)
     return coletasCadastradas
 }
+
 showColetas()
 
-
-console.log(coletasCadastradas)
 function addHTMLCard(coletasCadastradas, index){
     newColetas = coletasCadastradas
     
@@ -40,8 +39,11 @@ function addHTMLCard(coletasCadastradas, index){
                          <div>
                              <label for="">Referencia: </label> <label for="" id="compCard">${newColetas.reference}</label> 
                          </div>
-                         <div id="removeImg">
-                         <img onclick="remove(${index})" src="../imagens/minus.svg" alt="Remover Coleta">
+                         <div id="divImg">
+                         <img onclick="remove(${index})" src="../imagens/minus25x25.png" alt="Remover Coleta">
+                         <img onclick="edit(${index})" src="../imagens/editar25x25.png" alt="Editar Coleta">
+                         <img onclick="confirm(${index})" src="../imagens/verificado25x25.png" alt="Confirmar Coleta">
+                         <img onclick="map(${index})" src="../imagens/placeholder25x25.png" alt="Abri Mapa">
                          </div>
                          
                      </div>`
@@ -50,6 +52,7 @@ function addHTMLCard(coletasCadastradas, index){
      
 
 }
+
 function init(){
 
 coletasCadastradas.forEach((coletasCadastradas, index)=>{
@@ -69,6 +72,28 @@ function remove(index){
     localStorage.setItem("dadosColeta", JSON.stringify(coletasCadastradas))    
     reload()
 }
+
+function confirm(index){
+
+    let confirmedColeta = JSON.parse(localStorage.getItem("coletasRealizadas"))
+
+    if(confirmedColeta == null){
+        localStorage.setItem("coletasRealizadas", "[]")
+        confirmedColeta = []
+    }
+
+    var confirmColeta = JSON.parse(localStorage.dadosColeta)[index]
+    confirmedColeta.push(confirmColeta)
+    console.log(confirmColeta)
+    console.log(confirmedColeta)
+    
+
+    localStorage.setItem("coletasRealizadas", JSON.stringify(confirmedColeta))
+
+    remove(index)
+
+    }
+
 
 init()
 

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coleta Externa</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <main class="flex">
+        <header>
+            <h1>Olá Fulano, seja bem vindo !</h1>
+        </header>
+        
+        <section class="container">
+            <section class="flex-e cadcoleta-e">
+                <div class="formsbtn">
+                    <button onclick="save()">Colhido</button>
+                    <button onclick="clearForm()">Excluir</button>
+                    
+                </div>
+            </section>
+            <section class="flex-d cadcoleta-d visucoleta-d">
+                <div id="cardsColeta">
+                </div>
+  
+            </section>
+        </section>
+        
+    </main>
+    <footer><a href="telainicialcoleta.html">&#8656</a></footer>
+
+    <script>
+        var cadColeta = []
+        var coletasRealizadas =[]
+
+
+        function showColetas(){
+            coletasRealizadas = JSON.parse(localStorage.coletasRealizadas)
+            return coletasRealizadas
+        }
+
+        showColetas()
+
+        function addHTMLCard(coletasRealizadas, index){
+            newColetas = coletasRealizadas
+            
+            let html = ""
+            var divCard = document.getElementById('cardsColeta')
+                
+                html =  `<div class="cardColeta">
+                                <div id="nameCard">
+                                    <label for="">Nome:</label> <label for="">${newColetas.name}</label>
+                                </div>
+            
+                                <div>
+                                    <label for="">Data:</label> <label for="" id="dateCard">${newColetas.date}</label> <label for="">Hora:</label> <label for="" id="timeCard">${newColetas.time}</label>
+                                </div>
+            
+                                <div>
+                                    <label for="">Endereço:</label> <label for="" id="endCard">${newColetas.end}</label> <label for="">Nº:</label> <label for="" id="numberCard">${newColetas.number}</label>
+                                </div>
+            
+                                <div>
+                                    <label for="">Bairro:</label> <label for="" id="bairroCard">${newColetas.bairro}</label>
+                                </div>
+            
+                                <div>
+                                    <label for="">Cidade:</label> <label for="" id="cityCard">${newColetas.city}</label>
+                                </div>
+            
+                                <div>
+                                    <label for="">Referencia: </label> <label for="" id="compCard">${newColetas.reference}</label> 
+                                </div>
+                                
+                            </div>`
+                divCard.innerHTML += html
+
+        }
+
+        function init(){
+
+        coletasRealizadas.forEach((coletasRealizadas, index)=>{
+            addHTMLCard(coletasRealizadas, index)
+
+        })
+        }
+        
+        init()
+
+    </script>
+</body>
+</html>
