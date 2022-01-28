@@ -18,6 +18,7 @@
                 <div class="formsbtn">
                     <button onclick="save()">Salvar</button>
                     <button onclick="clearForm()">Limpar</button>
+                    <a href="telainicialcoleta.html"><button>Voltar</button></a>
                 </div>
             </section>
             <section class="flex-d cadcoleta-d">
@@ -63,6 +64,7 @@
 
                         <label for="reference">Referencia</label>
                         <input type="text" name="reference" id="reference">
+                        
                     </div>
                 </div>
                 <div class="pacientPaymentInput">
@@ -73,22 +75,27 @@
                         <input type="number" name="vTaxa" id="vTaxa">
                         <label for="vTotal">Valor Total</label>
                         <input type="number" name="vTotal" id="vTotal">
-                        <label for="pago">Situação</label>
-                        <div>
-                            <input type="radio" name="pago" value="pago" id="pago">Pago
-                            <input type="radio" name="aPagar" value="aPagar" id="aPagar">À Pagar
-                        </div>
+                        
+                        
                     </div>
                     <div class="pacientPaymentInput-R">
                         <label for="obs">Observações</label>
-                        <input type="text" name="obs" id="obs">
+                        <textarea name="obs" id="obs" cols="20" rows="15"></textarea>
+                        <label for="pago">Situação</label>
+                        <div>
+                         <select name="pago" id="pago">
+                             <option value="pago">Pago</option>
+                             <option value="receber">Receber</option>
+                         </select>
+                        </div>
+                    <!-- <input type="text" name="obs" id="obs"> -->
                     </div>
                 </div>
             </section>
         </section>
         
     </main>
-    <footer><a href="telainicialcoleta.html">&#8656</a></footer>
+    
 
     <script src="scriptColeta.js"></script>
 </body>

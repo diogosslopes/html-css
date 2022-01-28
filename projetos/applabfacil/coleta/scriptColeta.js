@@ -20,7 +20,7 @@ var  newValExame = document.querySelector('input#vExames')
 var  newValTaxa = document.querySelector('input#vTaxa')
 var  newValTotal = document.querySelector('input#vTotal')
 var  newPago = ""
-var  newOBS = document.querySelector('input#obs')
+var  newOBS = document.querySelector('textarea#obs')
 
 
 
