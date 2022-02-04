@@ -6,13 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aplicativo Fácil</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
 
 
     <main class="flex">
         <header>
-            <h1>Olá Fulano, seja bem vindo !</h1>
+            <h1 class="wellcome desactive">Olá Fulano, seja bem vindo !</h1>
         </header>
         <img class="fundo"  src="imagens/telainicialsemlogo800x571.png" alt="">
         <section class="container">
@@ -21,17 +22,65 @@
                 <img class="logocentrolab" src="imagens/centrolab300x78.png" alt="">
             </section>
             <section class="flex-d">
-                <ul class="menu">
+                <ul class="menu desactive">
                     <li><a href="telainicialchamdo.html">Chamados</a></li>
                     <li><a href="coleta/telainicialcoleta.html">Coleta Externa</a></li>
                     <li><a href="telainicialvoucher.html">Voucher</a></li>
                     <li><a href="telainicialpedidos.html">Pedidos</a></li>
                     <li><a href="telainicialreembolso.html">Reembolso</a></li>
+                    <li><a href="index.html" onclick="logout()">Sair</a></li>
                 </ul>
+                <div class="loginScreen">
+                    <div>
+                        <div id="errorMSG">
+                            <label for="" class="errorMSG">Usuario ou senha invalidos</label>
+                        </div>
+                        <div class="labels-inputs">
+                            <input type="text" name="login" id="loginInput" placeholder="" required>
+                            <label for="login">Usuario</label>
+                        </div>
+                        <div class="labels-inputs">
+                            <input type="password" name="password" id="passwordInput" placeholder="" required>
+                            <label for="password">Senha</label>
+                            <i class="fa fa-eye" aria-hidden="true"></i>
+                        </div>
+                        <div id="buttonsLogin">
+                            <button onclick="login()">Login</button>
+                            <button onclick="showCadScreen()">Cadastrar</button>
+                        </div>
+                    </div>
+        
+                </div>
+                <div class="cadScreen desactive">
+                    <div>
+                        <div class="labels-inputs">
+                            <input type="text" name="newName" id="newNameInput" placeholder="" required>
+                            <label for="password">Nome</label>
+                        </div>
+                        <div class="labels-inputs">
+                            <input type="text" name="newLogin" id="newLoginInput" placeholder="" required>
+                            <label for="password">Usuario</label>
+                        </div>
+                        <div class="labels-inputs">
+                            <input type="password" name="newPassword" id="newPasswordInput" placeholder="" required>
+                            <label for="password">Senha</label>
+                        </div>
+                        <div class="labels-inputs">
+                            <input type="password" name="newConfirmPassword" id="newConfirmPasswordInput" placeholder="" required>
+                            <label for="password">Confirmar Senha</label>
+                        </div>
+                        <div id="buttonCad">
+                            <button onclick="createLogin()">Salvar</button>
+                            <button onclick="cancel()">Cancelar</button>
+                        </div>
+                    </div>
+        
+                </div>
             </section>
         </section>
-        <footer>Versão: 2.0</footer>
+
     </main>
-    
+
+    <script src="script.js"></script>    
 </body>
 </html>

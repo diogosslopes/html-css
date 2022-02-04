@@ -109,6 +109,10 @@ function preencherForm(endCompleto){
 
 document.getElementById('cep').addEventListener('focusout', pesquisaCep)
 
+function login(){
+    console.log("Logado")
+}
+
 
 
 

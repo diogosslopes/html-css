@@ -366,6 +366,153 @@
         visibility: visible;
     }
 
+    /* Tela de login */
+
+    .loginScreen{
+        display: flex;
+        position: absolute;
+        align-items: center;
+        justify-content: center;
+        margin: auto;
+        width: 50%;
+        height: 50%;
+        background-color: #0396a1b6;
+        border-radius: 5px;
+    }
+
+    .labels-inputs{
+        /*display: flex;
+        flex-direction: column;*/
+        position: relative;
+        padding-top: 13px;
+        margin-top: 5%;
+        margin-bottom: 5%;
+        gap: 10px;
+        color: white;
+    }
+
+    .labels-inputs input{
+        height: 35px;
+        padding-left: 8px; 
+        background-color: transparent;  
+        outline: none;    
+        border-bottom: 2px solid black; 
+        border-radius: 0;
+        box-shadow: none;
+        display: inline-block;
+        transition: all .3s ease-out;
+    }
+
+    .labels-inputs label{
+        pointer-events: none;
+        position: absolute;
+        top: 0;
+        left: 0;
+        margin-top: 13px;
+        transition: all .3s ease-out;
+    }
+
+    .labels-inputs input:focus{
+    border-bottom: 1px solid rgba(0, 0, 0, 0.548);
+    }
+
+    .labels-inputs input:focus + label,
+    .labels-inputs input:valid + label{
+        font-size: 11.5px;
+        margin-top: 0;
+    }
+
+    #buttonsLogin{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: 10px;
+        padding: 5px;
+
+    }
+
+    #buttonsLogin button{
+        width: 40%;
+        height: 30px;
+        border-radius: 5px;
+        color: white;
+        background-color: #125335;
+        cursor: pointer;
+    }
+
+    .desactive{
+        visibility: hidden;
+    }
+
+    #errorMSG{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 20px;
+    }
+    
+    .errorMSG{
+        padding: 8px;
+        background-color: white;
+        color: red;
+        font-size: 10pt;
+        font-weight: bolder;
+    }
+
+
+    /* Tela de Cadastro */
+
+    .cadScreen{
+        display: flex;
+        position: absolute;
+        align-items: center;
+        justify-content: center;
+        margin: auto;
+        width: 50%;
+        height: 50%;
+        background-color: #0396a1b6;
+        border-radius: 5px;
+    }
+
+    #newLogin, #newPassword, #newName{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        
+    }
+
+    #newLogin input, #newPassword input, #newName input{
+        height: 35px;
+        padding-left: 8px;        
+    }
+
+    #buttonCad{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 10px;
+        padding: 5px;
+
+    }
+
+    #buttonCad button{
+        width: 40%;
+        height: 30px;
+        border-radius: 5px;
+        color: white;
+        background-color: #125335;
+        cursor: pointer;
+    }
+
+    .fa-eye{
+        position: absolute;
+        top: 15px;
+        right: 10px;
+        cursor: pointer;
+        color: #272262;
+      }
+
 
     /* Responsivo */
 
