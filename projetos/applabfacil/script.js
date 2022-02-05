@@ -61,12 +61,12 @@ function createLogin(){
     var passwords = []
     var login = document.getElementById('newLoginInput').value
     var password = document.getElementById('newPasswordInput').value
-    var name = document.getElementById('newNameInput').value
+    var name = document.getElementById('newNameInput')
     let errorMSG = document.querySelector('.errorMSG')
     let loginScreen = document.querySelector('.loginScreen')
     
     
-    if(login == "" || password == "" || name == ""){
+    if(login == "" || password == "" || name.value == ""){
         window.alert("Todos os campos devem ser preenchidos")
     }else if(password.length < 6){
         window.alert("A senha deve conter pelo menos 6 digitos")
@@ -75,7 +75,7 @@ function createLogin(){
     let cadScreen = document.querySelector('.cadScreen')
     
     const newPassword = {
-        name: name,
+        name: name.value,
         login: login,
         password: password
     }
@@ -158,5 +158,65 @@ btn.addEventListener('click', ()=>{
     inputSenha.setAttribute('type', 'password')
   }
 })
+
+
+let nameConfirm = document.querySelector('#newNameInput')
+let labelNewName = document.querySelector('#labelNewName')
+let loginConfirm = document.querySelector('#newLoginInput')
+let labelNewLogin = document.querySelector('#labelNewLogin')
+let passwordConfirm = document.querySelector('#newPasswordInput')
+let labelNewPassword = document.querySelector('#labelNewPassword')
+let confirmPasswordConfirm = document.querySelector('#newConfirmPasswordInput')
+let labelNewConfirmPassword = document.querySelector('#labelNewConfirmPassword')
+
+nameConfirm.addEventListener('keyup', ()=> {
+    if(nameConfirm.value.length < 3){
+        labelNewName.setAttribute('style', 'color: red')
+        labelNewName.innerHTML = 'Nome *Digite 3 ou mais caracteres'
+        nameConfirm.setAttribute('style', 'border-color: red')
+    }else{
+        labelNewName.setAttribute('style', 'color: green')
+        labelNewName.innerHTML = 'Nome'
+        nameConfirm.setAttribute('style', 'border-color: green')
+    }
+})
+
+
+loginConfirm.addEventListener('keyup', ()=> {
+    if(loginConfirm.value.length < 6){
+        labelNewLogin.setAttribute('style', 'color: red')
+        labelNewLogin.innerHTML = 'Usuario *Digite 6 ou mais caracteres'
+        loginConfirm.setAttribute('style', 'border-color: red')
+    }else{
+        labelNewLogin.setAttribute('style', 'color: green')
+        labelNewLogin.innerHTML = 'Usuario'
+        loginConfirm.setAttribute('style', 'border-color: green')
+    }
+})
+
+passwordConfirm.addEventListener('keyup', ()=> {
+    if(passwordConfirm.value.length < 6){
+        labelNewPassword.setAttribute('style', 'color: red')
+        labelNewPassword.innerHTML = 'Senha *A senha deve conter 6 ou mais caracteres'
+        passwordConfirm.setAttribute('style', 'border-color: red')
+    }else{
+        labelNewPassword.setAttribute('style', 'color: green')
+        labelNewPassword.innerHTML = 'Senha'
+        passwordConfirm.setAttribute('style', 'border-color: green')
+    }
+})
+
+confirmPasswordConfirm.addEventListener('keyup', ()=> {
+    if(confirmPasswordConfirm.value != passwordConfirm.value){
+        labelNewConfirmPassword.setAttribute('style', 'color: red')
+        labelNewConfirmPassword.innerHTML = 'Confirmar Senha *Senhas não conferem'
+        confirmPasswordConfirm.setAttribute('style', 'border-color: red')
+    }else{
+        labelNewConfirmPassword.setAttribute('style', 'color: green')
+        labelNewConfirmPassword.innerHTML = 'Confirmar Senha'
+        confirmPasswordConfirm.setAttribute('style', 'border-color: green')
+    }
+})
+
 
 init()
