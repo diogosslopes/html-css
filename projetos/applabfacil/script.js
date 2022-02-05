@@ -141,10 +141,11 @@ function logout(){
 }
 
 function showCadScreen(){
-    let cadScreen = document.querySelector('.cadScreen')
-    cadScreen.classList.remove('desactive')
     let loginScreen = document.querySelector('.loginScreen')
     loginScreen.classList.add('desactive')
+    let cadScreen = document.querySelector('.cadScreen')
+    cadScreen.classList.remove('desactive')
+
 }
 
 let btn = document.querySelector('.fa-eye')
