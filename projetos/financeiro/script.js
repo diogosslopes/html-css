@@ -77,7 +77,6 @@ const DOM = {
         const tr = document.createElement('tr')
         tr.innerHTML = DOM.innerHTMLTransaction(transaction, index)
         tr.dataset.index = index
-
         DOM.transactionsContainer.appendChild(tr)
 
         
@@ -186,8 +185,9 @@ const Form = {
 
 const app = {
     init(){
-        Transaction.all.forEach((transaction, index) => {
+            Transaction.all.forEach((transaction, index) => {
             DOM.addTransaction(transaction, index)
+       
         }),
 
         

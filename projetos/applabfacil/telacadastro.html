@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aplicativo Fácil</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <main class="flex">
+        <header>
+            <h1 class="wellcome"></h1>
+        </header>
+        <img class="fundo"  src="imagens/telainicialsemlogo800x571.png" alt="">
+        <section class="container">
+            <section class="flex-e">
+                <img class="logofacil" src="imagens/logofacil300x106.png" alt="">
+                <img class="logocentrolab" src="imagens/centrolab300x78.png" alt="">
+            </section>
+            <section class="flex-d">
+                <div class="cadScreen">
+                    <div>
+                        <div class="labels-inputs">
+                            <input type="text" name="newName" id="newNameInput" placeholder="" required>
+                            <label id="labelNewName" for="password">Nome</label>
+                        </div>
+                        <div class="labels-inputs">
+                            <input type="text" name="newLogin" id="newLoginInput" placeholder="" required>
+                            <label id="labelNewLogin" for="newLogin">Usuario</label>
+                        </div>
+                        <div class="labels-inputs">
+                            <input type="password" name="newPassword" id="newPasswordInput" placeholder="" required>
+                            <label id="labelNewPassword" for="newPassword">Senha</label>
+                            <i id="verSenha" class="fa fa-eye" aria-hidden="true"></i>
+                        </div>
+                        <div class="labels-inputs">
+                            <input type="password" name="newConfirmPassword" id="newConfirmPasswordInput" placeholder="" required>
+                            <label id="labelNewConfirmPassword" for="newConfirmPassword">Confirmar Senha</label>
+                            <i id="verConfirmSenha" class="fa fa-eye" aria-hidden="true"></i>
+                        </div>
+                        <div id="buttonCad">
+                            <button onclick="createLogin()">Salvar</button>
+                            <button onclick="window.location.href = 'index.html'">Cancelar</button>
+                        </div>
+                    </div>
+        
+                </div>
+            </section>
+        </section>
+
+    </main>
+
+    <script src="scriptCad.js"></script>    
+</body>
+</html>
