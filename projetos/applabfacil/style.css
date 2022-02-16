@@ -157,6 +157,7 @@
         height: 570px;
         background-image: url(imagens/menuesquerdo.png);
         background-size: 100% 100%;
+        
     }
 
     .cadcoleta-d{
@@ -168,6 +169,7 @@
         height: 570px;
         background-image: url(imagens/menudireito.png);
         background-size: 100% 100%;
+        
     }
 
     .dateTimeInput, .pacientDataInput, .pacientPaymentInput{
@@ -298,17 +300,19 @@
     }
 
     .cardColeta{
-        background-color: hsla(0, 0%, 100%, 0.3);
+        background-color: #429ba1b4;
+        
         padding: 10px;
         border-radius: 5px;
         margin-top: 15px;
         margin-left: 15px;
-        width: 90%;        
+        width: 90%;   
+            
     }
 
     .cardColeta label{
         font-weight: bold;
-        color: rgb(53, 51, 51) ;
+        
     }
 
     
@@ -321,7 +325,7 @@
     #cardsColeta{
         width: 100%;
         min-height: 100%;
-        overflow-y: scroll
+        overflow-y: scroll;
     }
 
     #divImg{
@@ -393,6 +397,7 @@
 
     .labels-inputs input{
         height: 35px;
+        max-width: 100%;
         padding-left: 8px; 
         background-color: transparent;  
         outline: none;    
@@ -459,6 +464,10 @@
         font-weight: bolder;
     }
 
+    .divInputs{
+        max-width: 50%;
+    }
+
 
     /* Tela de Cadastro */
 
@@ -497,12 +506,13 @@
     }
 
     #buttonCad button{
-        width: 40%;
+        min-width: 40%;
         height: 30px;
         border-radius: 5px;
         color: white;
         background-color: #125335;
         cursor: pointer;
+        
     }
 
     .fa-eye{
@@ -516,6 +526,7 @@
 
     /* Responsivo */
 
+ 
     @media (max-width:373px){
 
         header{
@@ -537,6 +548,8 @@
             justify-content: center;
             align-items: center;
         }
+
+        
 
 
 
