@@ -164,7 +164,7 @@
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
-        gap: 24px;
+        gap: 15;
         width: 100%;
         height: 570px;
         background-image: url(imagens/menudireito.png);
@@ -217,24 +217,18 @@
         margin-bottom: 0;
     }
 
-    .pacientDataInput-L{
+    .pacientInputs{
         display: flex;
         flex-direction: column;
-    }    
-
-    .pacientDataInput-R{
-        display: flex;
-        flex-direction: column;
-    }   
-
-    .pacientPaymentInput-L{
-        display: flex;
-        flex-direction: column;
+    } 
+    
+    .pacientInputs .labels-inputs, .dateTimeInput .labels-inputs{
+        color: black;
+        margin-bottom: 0 ;
+        height: 32px;
     }
-    .pacientPaymentInput-R{
-        display: flex;
-        flex-direction: column;
-    }
+
+
 
     .formsbtn, .formsbtn > div{
         display: flex;

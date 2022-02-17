@@ -23,62 +23,95 @@
             </section>
             <section class="flex-d cadcoleta-d">
                 <div class="dateTimeInput">
-                    <div>
-                        <label for="date">Data</label>
+                    <div class="labels-inputs">
                         <input type="date" name="date" id="date">
+                        <label for="date">Data</label>
                     </div>
-                    <div>
-                        <label for="time">Horario</label>
+                    <div class="labels-inputs">
                         <input type="time" name="time" id="time">
+                        <label for="time">Horario</label>
                     </div>
                 </div>
                 <div class="pacientDataInput">
-                    <div class="pacientDataInput-L">
-                        <label for="name">Nome</label>
-                        <input type="text" name="name" id="name">
+                    <div class="pacientInputs">
+                        <div class="labels-inputs">
+                            <input type="text" name="name" id="name" placeholder="" required>
+                            <label for="name">Nome</label>
+                        </div>
 
-                        <label for="cpf">CPF</label>
-                        <input type="text" name="cpf" id="cpf">
+                        <div class="labels-inputs">
+                            <input type="text" name="cpf" id="cpf" required>
+                            <label for="cpf">CPF</label>
+                        </div>
 
-                        <label for="cep">CEP</label>
-                        <input type="text" name="cep" id="cep">
+                        <div class="labels-inputs">
+                            <input type="text" name="cep" id="cep" placeholder="" required>
+                            <label for="cep">CEP</label>                            
+                        </div>
 
-                        <label for="end">Logradouro</label>
-                        <input type="text" name="end" id="end">
+                        <div class="labels-inputs">
+                            <input type="text" name="end" id="end" placeholder="" required>
+                            <label for="end">Logradouro</label>
+                        </div>
 
-                        <label for="city">Cidade</label>
-                        <input type="text" name="city" id="city">
+                        <div class="labels-inputs">
+                            <input type="text" name="city" id="city" placeholder="" required>
+                            <label for="city">Cidade</label>
+                        </div>
                     </div>
-                    <div class="pacientDataInput-R">
-                        <label for="birth">Data de Nascimento</label>
-                        <input type="date" name="birth" id="birth">
+                    <div class="pacientInputs">
+                        <div class="labels-inputs">
+                            <input type="date" name="birth" id="birth">
+                            <label for="birth">Data Nascimento</label>
+                        </div>
 
-                        <label for="tel">Telefone</label>
-                        <input type="tel" name="tel" id="phone">
+                        <div class="labels-inputs">
+                            
+                            <input type="tel" name="tel" id="phone" placeholder="" required>
+                            <label for="tel">Telefone</label>
+                        </div>
 
-                        <label for="number">Numero</label>
-                        <input type="text" name="number" id="number">
+                        <div class="labels-inputs">
+                            
+                            <input type="text" name="number" id="number" placeholder="" required>
+                            <label for="number">Numero</label>
+                        </div>
 
-                        <label for="bairro">Bairro</label>
-                        <input type="text" name="bairro" id="bairro">
+                        <div class="labels-inputs">
+                            
+                            <input type="text" name="bairro" id="bairro" placeholder="" required>
+                            <label for="bairro">Bairro</label>
+                        </div>
 
-                        <label for="reference">Referencia</label>
-                        <input type="text" name="reference" id="reference">
+                        <div class="labels-inputs">
+                            
+                            <input type="text" name="reference" id="reference" placeholder="" required>
+                            <label for="reference">Referencia</label>
+                        </div>
                         
                     </div>
                 </div>
                 <div class="pacientPaymentInput">
-                    <div class="pacientPaymentInput-L">
-                        <label for="vExames">Valor Exames</label>
-                        <input type="number" name="vExames" id="vExames">
-                        <label for="vTaxa">Valor Taxa</label>
-                        <input type="number" name="vTaxa" id="vTaxa">
-                        <label for="vTotal">Valor Total</label>
-                        <input type="number" name="vTotal" id="vTotal">
+                    <div class="pacientInputs">
+                        <div class="labels-inputs">
+                            
+                            <input type="number" name="vExames" id="vExames" placeholder="" required>
+                            <label for="vExames">Valor Exames</label>
+                        </div>
+                        <div class="labels-inputs">
+                            
+                            <input type="number" name="vTaxa" id="vTaxa" placeholder="" required>
+                            <label for="vTaxa">Valor Taxa</label>
+                        </div>
+                        <div class="labels-inputs">
+                            
+                            <input type="number" name="vTotal" id="vTotal" placeholder="" required>
+                            <label for="vTotal">Valor Total</label>
+                        </div>
                         
                         
                     </div>
-                    <div class="pacientPaymentInput-R">
+                    <div class="pacientInputs">
                         <label for="obs">Observações</label>
                         <textarea name="obs" id="obs" cols="20" rows="15"></textarea>
                         <label for="pago">Situação</label>
