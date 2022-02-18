@@ -197,9 +197,12 @@
     #obs{
         height: 80px;
         text-align: left;
+        padding-left: 4px;
         border-radius: 5px;
         border: none;
-        box-shadow: 1px 2px 1px rgba(0, 0, 0, 0.452) ;
+        background-color: transparent;
+        outline: none;
+        border: 2px solid black; 
 
     }
 
@@ -207,6 +210,11 @@
         width: 100px;
     }
 
+    #labelTime{
+        text-align: right;
+    }
+
+   
     label{
         font-size: 13px;
         font-weight: bolder;
@@ -402,6 +410,7 @@
         transition: all .3s ease-out;
     }
 
+ 
     .labels-inputs label{
         pointer-events: none;
         position: absolute;
@@ -516,6 +525,10 @@
         cursor: pointer;
         color: #272262;
       }
+
+      #labelTime{
+       margin-left: 40px;
+    }
 
 
     /* Responsivo */
