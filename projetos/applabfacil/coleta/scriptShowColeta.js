@@ -1,5 +1,7 @@
 var cadColeta = []
 var coletasCadastradas =[]
+const chaveAPI = 'AIzaSyCP785Haf0HZcwES00qa3vf6x_qTNiK0fA'
+
 
 
 function showColetas(){
@@ -208,6 +210,17 @@ function clearForm(){
     document.getElementById('vTotal').value = ""
     document.getElementById('obs').value = ""
     
+}
+
+function map(){
+    let local = document.getElementById('endCard').innerHTML + " " + document.getElementById('numberCard').innerHTML + " " + document.getElementById('bairroCard').innerHTML + " " + document.getElementById('cityCard').innerHTML
+    console.log(local)
+
+    let localEdited = local.replace(/ /g,"+")
+    console.log(localEdited)
+
+    window.location.href = `https://www.google.com.br/maps/place/${localEdited}`
+     
 }
 
 init()
