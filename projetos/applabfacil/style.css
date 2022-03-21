@@ -554,6 +554,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            
         }
 
         
@@ -562,3 +563,9 @@
 
 
     }
+
+    /* input 157 largura
+    gap entre direita e esquerda 15px
+    header displey none
+    flex direction collum e altura 97 vh main
+    mudar imagem de fundo do flex-e
