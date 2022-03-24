@@ -1,43 +1,3 @@
-// const fetchPokemon = () =>{
-    
-//     const getPokemonURL = id => `https://pokeapi.co/api/v2/pokemon/${id}`
-
-//     const pokemonPromises = []
-
-//     for(i=1;i<=150;i++){
-//         pokemonPromises.push(fetch(getPokemonURL(i)).then((response) => response.json()))
-//      }
-
-//     Promise.all(pokemonPromises)
-//     .then(pokemons => {
-        
-//         //const grassPokemons = pokemons.filter((pokemons) => pokemons.types[0].type.name === "grass")
-//         const firePokemons = pokemons.filter((pokemons) => pokemons.types[0].type.name === "fire")
-//         // const waterPokemons = pokemons.filter((pokemons) => pokemons.types[0].type.name === "water")
- 
-//         return grassPokemons
-
-//     }).then((grassPokemons)=>{
-//         let ul = document.querySelector('.pokedexGrass')
-        
-        
-//         for(i=0;i<grassPokemons.length;i++){
-//         ul.innerHTML += `<li class="card grass" onclick="select(${grassPokemons[i].id})">
-//             <img class = "card-image" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${grassPokemons[i].id}.png" alt="${grassPokemons[i].name}">
-//             <h2 class="card-title"> ${grassPokemons[i].name} </h2>
-            
-//         </li>`}
-
-        
-//     //    return function add(index){
-//     //         console.log(index)
-//     //         console.log(grassPokemons)
-//     //     }
-//         // console.log(grassPokemons)
-//         // let div = document.querySelector('.container')
-//         // div.innerHTML = `<p>nome:  ${grassPokemons[0].name}</p>`
-//     })
-// }
 
 const fetchPokemonFire = () =>{
     const getPokemonURL = id => `https://pokeapi.co/api/v2/pokemon/${id}`
@@ -52,7 +12,6 @@ const fetchPokemonFire = () =>{
     .then(pokemons => {
         
         const firePokemons = pokemons.filter((pokemons) => pokemons.types[0].type.name === "fire")
-        // const waterPokemons = pokemons.filter((pokemons) => pokemons.types[0].type.name === "water")
  
         return firePokemons
 
@@ -60,7 +19,7 @@ const fetchPokemonFire = () =>{
         let ul = document.querySelector('.pokedexFire')
         for(i=0;i<firePokemons.length;i++){
         ul.innerHTML += `<li class="card grass" onclick="select(${firePokemons[i].id})">
-            <img class = "card-image" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${firePokemons[i].id}.png" alt="${firePokemons[i].name}">
+            <img class = "card-image" src="${firePokemons[i].sprites.front_default}" alt="${firePokemons[i].name}">
             <h2 class="card-title"> ${firePokemons[i].name} </h2>
             
         </li>`}
@@ -90,15 +49,11 @@ function select(index){
     
     let url = `https://pokeapi.co/api/v2/pokemon/${index}`
  
-
-    //grassFavorites.push = (fetch(url).then(response => response.json()))
-  
     fetch(url)
     .then((response)=>{
         return response.json()
     })
     .then((data)=>{
-        //console.log(data)
         if(fireFavorites.length <3){
             let abilities = []
             for(cont=0;cont< data.abilities.length;cont++){
@@ -118,64 +73,56 @@ function select(index){
                 pokemonabilities: abilities
             }
             fireFavorites.push(pokemonSelected) 
-            pokemonsFavorites.push(pokemonSelected)           
         }else{
-        window.alert("Maximo de 3 pokemons atingidos")
+            window.alert("Maximo de 3 pokemons atingidos")
     }
-        localStorage.setItem("pokemonsFavorites", JSON.stringify(pokemonsFavorites))
         console.log(fireFavorites)
-        
-
     }).then(()=>{
         let ulFavorites = document.querySelector('.fireFavorites')
         ulFavorites.innerHTML = ""
         fireFavorites.forEach((fireFavorites, index)=>{
-            ulFavorites.innerHTML += `<li class="card grass" onclick="remove(${index})">
-            <img class = "card-image" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${fireFavorites.id}.png" alt="${fireFavorites.name}">
+            ulFavorites.innerHTML += `<li class="card fire" onclick="remove(${index})">
+            <img class = "card-image" src="${fireFavorites.picture}" alt="${fireFavorites.name}">
             <h2 class="card-title"> ${fireFavorites.name} </h2>
             </li>` 
-            
         })
-
-    
     })
-       
-
-
 }
 
 function remove(index){
-
-    console.log('cliquei no: ' + index)
-
+  
     fireFavorites.splice(index,1)
-    
+  
     let ulFavorites = document.querySelector('.fireFavorites')
     ulFavorites.innerHTML = ""
-    console.log(fireFavorites)
+    
     fireFavorites.forEach((fireFavorites, index)=>{
-        ulFavorites.innerHTML += `<li class="card grass" onclick="remove(${index})">
-        <img class = "card-image" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${fireFavorites.id}.png" alt="${fireFavorites.name}">
+        ulFavorites.innerHTML += `<li class="card fire" onclick="remove(${index})">
+        <img class = "card-image" src="${fireFavorites.picture}" alt="${fireFavorites.name}">
         <h2 class="card-title"> ${fireFavorites.name} </h2>
         </li>` 
-        })
+    })
 
     }
 
-function next(fireFavorites){
-    let pokemonsFavorites = JSON.parse(localStorage.getItem("pokemonsFavorites"))
-    console.log(pokemonsFavorites)
+    function next(){
 
-if(pokemonsFavorites == null){
-    localStorage.setItem("pokemonsFavorites", "[]")
-    pokemonsFavorites = []
-}
-    localStorage.setItem("pokemonsFavorites", JSON.stringify(fireFavorites))
-    window.location('waterpokemons.html')
-}
+        if(fireFavorites.length == 3){
+            fireFavorites.forEach((fireFavorites)=>{
+            pokemonsFavorites.push(fireFavorites)
+        })
+       
+        localStorage.setItem("pokemonsFavorites", JSON.stringify(pokemonsFavorites))
+        window.location = 'waterpokemons.html'
+        }else{
+            window.alert('Escolha 3 pokemons')
+        }
+        
+    }
 
+
+function search(){
     
-
-
-
+}
+    
 fetchPokemonFire()
