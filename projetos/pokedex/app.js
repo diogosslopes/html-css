@@ -16,62 +16,33 @@ const fetchPokemon = () =>{
 
     }).then((grassPokemons)=>{
         let ul = document.querySelector('.pokedexGrass')
-        
-        
         for(i=0;i<grassPokemons.length;i++){
-
-           
-
-        ul.innerHTML += `<li class="card grass"  onclick="select(${grassPokemons[i].id})" >
-            <div class="card" onmouseenter="efeito(${grassPokemons[i].id})" onmouseleave="efeito(${grassPokemons[i].id})" >
+       
+        ul.innerHTML += `<li class="card grass">
+         
+            <div class="card"  onclick="select(${grassPokemons[i].id})" )">
             <img class = "card-image" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${grassPokemons[i].id}.png" alt="${grassPokemons[i].name}">
-            <h2 class="card-title"> ${grassPokemons[i].name} </h2>
+            <h2 class="card-title" > ${grassPokemons[i].name}</h2>
             </div>
+            <div><img class = "card-image-info" src="img/icons8-informações-25.png" alt="info" onclick="efeito(${grassPokemons[i].id})"></div>
             <div class="cardInfo" id = "G${grassPokemons[i].id}" >
-            <p class="card-class">Tipo: ${grassPokemons[i].types[0].type.name} </p>
-            <p class="card-ability" id= "P${grassPokemons[i].id}">Habilidades:<br> </p>
+            <div class="type-close"><p class="card-class">Tipo: ${grassPokemons[i].types[0].type.name}  </p> <img class = "card-image-close" src="img/icons8-macos-close-20.png" alt="info" onclick="efeito(${grassPokemons[i].id})"></div>
+            <p class="card-ability" id= "P${grassPokemons[i].id}" >Habilidades:<br> </p>
             
-             </div>
+            <div id="D${grassPokemons[i].id}" class="card-ability-detail"></div>
+            </div>
+          
             
         </li>`
 
-       
-
-            // let grassabilities = []
-            // let grassability = {}
             for(cont=0;cont< grassPokemons[i].abilities.length;cont++){
-          
+                let Ability = grassPokemons[i].abilities[cont].ability.name[0].toUpperCase() + grassPokemons[i].abilities[cont].ability.name.substr(1)
+               
                 let pAbilities = document.querySelector(`#P${grassPokemons[i].id}`)
-
-                pAbilities.innerHTML += `${cont + 1} - ${grassPokemons[i].abilities[cont].ability.name}<br>`
-                
-                // grassability = {
-                //     pokemonid: grassPokemons[i].id,
-                //     abilityname: grassPokemons[i].abilities[cont].ability.name,
-                //     abilityurl: grassPokemons[i].abilities[cont].ability.url,
-                // }
-                // grassabilities.push(grassability)
+                pAbilities.innerHTML += `<strong id = "D" onmouseenter ="abilitiesDetails('${grassPokemons[i].abilities[cont].ability.name}',${grassPokemons[i].id})" class="card-ability">${cont + 1} - ${Ability}</strong><br>`
                 
             }
-            
-        // for(c=0;c<grassabilities.length;c++){
      
-
-        //     let pAbilities = document.querySelector(`#P${grassPokemons[i].id}`)
-        //     console.log(pAbilities)
-        //     pAbilities.innerHTML += `<p class="card-ability">${c + 1} - ${grassabilities[c].abilityname}</p> `
-        // }
-    
-        // grassabilities.forEach((grassabilities, index)=>{
-
-        //     console.log(grassabilities.abilityname +" " + grassabilities.pokemonid)
-        //     let pAbilities = document.querySelector(`#P${grassPokemons[i].id}`)
-
-        //     pAbilities.innerHTML += `<p class="card-ability">${index + 1} - ${grassabilities.abilityname}</p> `
-        // })
-
-
-        
         
     }
         
@@ -88,13 +59,31 @@ const fetchPokemon = () =>{
             let ul = document.querySelector('.pokedexGrass')
             ul.innerHTML = ""
             searchPokemon.forEach((searchPokemon, index)=>{
-                ul.innerHTML += `<li class="card grass" onclick="select(${index})">
+                ul.innerHTML += `<li class="card grass" >
+                <div class="card"  onclick="select(${searchPokemon.id})" )">
                 <img class = "card-image" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${searchPokemon.id}.png" alt="${searchPokemon.name}">
-                <h2 class="card-title"> ${searchPokemon.name} </h2>
+                <h2 class="card-title" > ${searchPokemon.name}</h2>
+                </div>
+                <div><img class = "card-image-info" src="img/icons8-informações-25.png" alt="info" onclick="efeito(${searchPokemon.id})"></div>
+                <div class="cardInfo" id = "G${searchPokemon.id}" >
+                <div class="type-close"><p class="card-class">Tipo: ${searchPokemon.types[0].type.name}  </p> <img class = "card-image-close" src="img/icons8-macos-close-20.png" alt="info" onclick="efeito(${searchPokemon.id})"></div>
+                <p class="card-ability" id= "P${searchPokemon.id}">Habilidades:<br> </p>
+                <div id="D${searchPokemon.id}" class="card-ability-detail"></div>
+                </div>
                 </li>` 
-                })
-            }
+
+                for(cont=0;cont< searchPokemon.abilities.length;cont++){
+                    let Ability = searchPokemon.abilities[cont].ability.name[0].toUpperCase() + searchPokemon.abilities[cont].ability.name.substr(1)
+                    let pAbilities = document.querySelector(`#P${searchPokemon.id}`)
+    
+                    pAbilities.innerHTML += `<strong onmouseenter ="abilitiesDetails('${searchPokemon.abilities[cont].ability.name}',${searchPokemon.id})" class="card-ability" >${cont + 1} - ${Ability}</strong><br>`
+                    
+                }
+            })
+        }
             document.getElementById('search').addEventListener("keyup", search)
+
+            return grassPokemons
     })
 }
 
@@ -123,12 +112,9 @@ function select(index){
         return response.json()
     })
     .then((data)=>{
-        
-
         if(grassFavorites.length <3){
             let abilities = []
             for(cont=0;cont< data.abilities.length;cont++){
-             
                 ability = {
                     abilityname: data.abilities[cont].ability.name,
                     abilityurl: data.abilities[cont].ability.url,
@@ -148,14 +134,12 @@ function select(index){
         }else{
         window.alert("Maximo de 3 pokemons atingidos")
     }
-        
-        console.log(grassFavorites)
 
     }).then(()=>{
         let ulFavorites = document.querySelector('.favorites')
         ulFavorites.innerHTML = ""
         grassFavorites.forEach((grassFavorites, index)=>{
-            ulFavorites.innerHTML += `<li class="card grass" onclick="remove(${index})">
+            ulFavorites.innerHTML += `<li class="card" onclick="remove(${index})">
             <img class = "card-image" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${grassFavorites.id}.png" alt="${grassFavorites.name}">
             <h2 class="card-title"> ${grassFavorites.name} </h2>
             </li>`           
@@ -164,16 +148,12 @@ function select(index){
 }
 
 function remove(index){
-
-    console.log('cliquei no: ' + index)
-
     grassFavorites.splice(index,1)
     
     let ulFavorites = document.querySelector('.favorites')
     ulFavorites.innerHTML = ""
-    console.log(grassFavorites)
     grassFavorites.forEach((grassFavorites, index)=>{
-        ulFavorites.innerHTML += `<li class="card grass" onclick="remove(${index})">
+        ulFavorites.innerHTML += `<li class="card" onclick="remove(${index})">
         <img class = "card-image" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${grassFavorites.id}.png" alt="${grassFavorites.name}">
         <h2 class="card-title"> ${grassFavorites.name} </h2>
         </li>` 
@@ -195,22 +175,26 @@ function next(){
 }
 
     
-// function search(){
-//     let searchField = document.getElementById('search').innerHTML
-//     console.log(searchField)
-//     let searchPokemon = grassPokemons.filter((grass)=>{
-//         grass.name === searchField
-//     })
+function abilitiesDetails(abilityName, id){
 
-//     console.log (searchPokemon)
+    let urlDetail = `https://pokeapi.co/api/v2/ability/${abilityName}`
 
-//     // grassFavorites.forEach((grassFavorites, index)=>{
-//     //     ulFavorites.innerHTML += `<li class="card grass" onclick="remove(${index})">
-//     //     <img class = "card-image" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${grassFavorites.id}.png" alt="${grassFavorites.name}">
-//     //     <h2 class="card-title"> ${grassFavorites.name} </h2>
-//     //     </li>` 
-//     //     })
-//     }
+    fetch(urlDetail)
+    .then((response)=>{
+        return response.json()
+    })
+    .then((data)=>{
+        let pDetail = document.getElementById(`D${id}`) 
+        if(data.effect_entries[0].language.name == "en"){
+            pDetail.innerHTML = ""
+            pDetail.innerHTML = `<p class = "card-ability-detail" >${data.effect_entries[0].short_effect}</p>`
+        }else{
+            pDetail.innerHTML = ""
+            pDetail.innerHTML = `<p class = "card-ability-detail" >${data.effect_entries[1].short_effect}</p>`
+        }
+        
+    })
+}
 
 
 
@@ -222,10 +206,8 @@ function efeito(id){
 
     if(element.classList[1] == "efeitoCardInfo"){
         element.classList.remove("efeitoCardInfo")
-        console.log("Saiu")
     }else{
         element.classList.add("efeitoCardInfo")
-        console.log("Entrou")
     }
 
 }

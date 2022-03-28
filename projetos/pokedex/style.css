@@ -79,6 +79,7 @@ h2{
 
 .card {
 	display: flex;
+	flex-direction: row-reverse;
 	align-items: center;
 	min-width: 200px;
 	list-style: none;
@@ -87,6 +88,7 @@ h2{
 	color: #222;
 	text-align: center;
 	border-radius: 20px;
+
 	
 }
 
@@ -101,7 +103,7 @@ h2{
 	position: relative;
 	display: flex;
 	flex-direction: column;
-	bottom: 180px;
+	bottom: 170px;
 	left: 110px;
 	padding: 10px;
 	/* align-items: center; */
@@ -115,11 +117,25 @@ h2{
 
 }
 
+h5{
+	display: inline;
+}
+
 .efeitoCardInfo{
 	left: 130px;
-	bottom: 210px;
+	bottom: 225px;
 	visibility: visible;
 	transition: all .3s ease-out;
+	
+}
+
+.card-image-info{
+	position: relative;
+	left: 125px;
+	bottom: 92px;
+	background-color: #f4f4f4;
+	padding: 3px;
+	border-radius: 0 10px 10px 0;
 	
 }
 
@@ -151,11 +167,34 @@ h2{
 	text-align: left;
 }
 
+.type-close{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.card-image-close{
+	/* position: relative;
+	left: 171px;
+	bottom: 90px; */
+	width: 15%;
+	height: 15%;
+}
+
 .card-ability{
 	margin: 0;
 	margin-bottom: 5px;
 	padding: 0;
 	text-align: left;
+}
+
+.card-ability-detail{
+	position: relative;
+	padding: 0;
+	margin: 0;
+	font-size: 10pt;
+	text-align: left;
+	/* visibility: hidden; */
 }
 
 @keyframes bounce {
