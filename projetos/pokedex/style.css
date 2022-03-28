@@ -197,6 +197,15 @@ h5{
 	/* visibility: hidden; */
 }
 
+.pokedexFavorites{
+	margin: auto;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	width: 70%;
+}
+
 @keyframes bounce {
 	20% {
 			transform: translateY(-6px);

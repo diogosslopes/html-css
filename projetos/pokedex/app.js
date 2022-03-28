@@ -167,6 +167,7 @@ function next(){
         })
        
         localStorage.setItem("pokemonsFavorites", JSON.stringify(pokemonsFavorites))
+        window.location = 'firepokemons.html'
     }else{
         window.alert("Escolha 3 pokemons")
     }
