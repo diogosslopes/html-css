@@ -34,7 +34,6 @@ const fetchPokemon = () =>{
           
             
         </li>`
-
             for(cont=0;cont< grassPokemons[i].abilities.length;cont++){
                 let Ability = grassPokemons[i].abilities[cont].ability.name[0].toUpperCase() + grassPokemons[i].abilities[cont].ability.name.substr(1)
                
