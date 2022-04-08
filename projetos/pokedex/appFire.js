@@ -18,14 +18,14 @@ const fetchPokemonFire = () =>{
     }).then((firePokemons)=>{
         let ul = document.querySelector('.pokedexFire')
         for(i=0;i<firePokemons.length;i++){
-            ul.innerHTML += `<li class="card grass">
+            ul.innerHTML += `<li class="grass">
          
             <div class="card"  onclick="select(${firePokemons[i].id})" )">
             <img class = "card-image" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${firePokemons[i].id}.png" alt="${firePokemons[i].name}">
             <h2 class="card-title" > ${firePokemons[i].name}</h2>
             </div>
             <div><img class = "card-image-info" src="img/icons8-informações-25.png" alt="info" onclick="efeito(${firePokemons[i].id})"></div>
-            <div class="cardInfo" id = "G${firePokemons[i].id}" >
+            <div class="cardInfo infoFire" id = "G${firePokemons[i].id}" >
             <div class="type-close"><p class="card-class">Tipo: ${firePokemons[i].types[0].type.name}  </p> <img class = "card-image-close" src="img/icons8-macos-close-20.png" alt="info" onclick="efeito(${firePokemons[i].id})"></div>
             <p class="card-ability" id= "P${firePokemons[i].id}" >Habilidades:<br> </p>
             
@@ -60,13 +60,13 @@ const fetchPokemonFire = () =>{
             let ul = document.querySelector('.pokedexFire')
             ul.innerHTML = ""
             searchPokemon.forEach((searchPokemon, index)=>{
-                ul.innerHTML += `<li class="card grass" >
+                ul.innerHTML += `<li class="grass" >
                 <div class="card"  onclick="select(${searchPokemon.id})" )">
                 <img class = "card-image" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${searchPokemon.id}.png" alt="${searchPokemon.name}">
                 <h2 class="card-title" > ${searchPokemon.name}</h2>
                 </div>
                 <div><img class = "card-image-info" src="img/icons8-informações-25.png" alt="info" onclick="efeito(${searchPokemon.id})"></div>
-                <div class="cardInfo" id = "G${searchPokemon.id}" >
+                <div class="cardInfo infoFire" id = "G${searchPokemon.id}" >
                 <div class="type-close"><p class="card-class">Tipo: ${searchPokemon.types[0].type.name}  </p> <img class = "card-image-close" src="img/icons8-macos-close-20.png" alt="info" onclick="efeito(${searchPokemon.id})"></div>
                 <p class="card-ability" id= "P${searchPokemon.id}">Habilidades:<br> </p>
                 <div id="F${searchPokemon.id}" class="card-ability-detail"></div>
@@ -102,6 +102,8 @@ let pokemonsFavorites = JSON.parse(localStorage.getItem("pokemonsFavorites"))
 if(pokemonsFavorites == null){
     localStorage.setItem("pokemonsFavorites", "[]")
     pokemonsFavorites = []
+}else{
+    back()
 }
 
 function select(index){
@@ -140,9 +142,9 @@ function select(index){
         let ulFavorites = document.querySelector('.fireFavorites')
         ulFavorites.innerHTML = ""
         fireFavorites.forEach((fireFavorites, index)=>{
-            ulFavorites.innerHTML += `<li class="card fire" onclick="remove(${index})">
-            <img class = "card-image" src="${fireFavorites.picture}" alt="${fireFavorites.name}">
-            <h2 class="card-title"> ${fireFavorites.name} </h2>
+            ulFavorites.innerHTML += `<li class="card-favorites" onclick="remove(${index})">
+            <img class = "card-image-favorites" src="${fireFavorites.picture}" alt="${fireFavorites.name}">
+            <h2 class="card-title-favorites"> ${fireFavorites.name} </h2>
             </li>` 
         })
     })
@@ -156,9 +158,9 @@ function remove(index){
     ulFavorites.innerHTML = ""
     
     fireFavorites.forEach((fireFavorites, index)=>{
-        ulFavorites.innerHTML += `<li class="card fire" onclick="remove(${index})">
-        <img class = "card-image" src="${fireFavorites.picture}" alt="${fireFavorites.name}">
-        <h2 class="card-title"> ${fireFavorites.name} </h2>
+        ulFavorites.innerHTML += `<li class="card-favorites fire" onclick="remove(${index})">
+        <img class = "card-image-favorites" src="${fireFavorites.picture}" alt="${fireFavorites.name}">
+        <h2 class="card-title-favorites"> ${fireFavorites.name} </h2>
         </li>` 
     })
 
@@ -200,6 +202,33 @@ function abilitiesDetails(abilityName, id){
             
         })
     }
+
+    function back(){
+        // window.location = 'waterpokemons.html'
+        console.log(pokemonsFavorites)
+        let otherFavorites = JSON.parse(localStorage.getItem("pokemonsFavorites"))
+        fireFavorites = pokemonsFavorites.filter((pokemons) => pokemons.type === "fire")
+        pokemonsFavorites = otherFavorites.filter((pokemons) => pokemons.type != "fire")
+        localStorage.setItem("pokemonsFavorites", "[]")
+        localStorage.setItem("pokemonsFavorites", JSON.stringify(pokemonsFavorites))
+        console.log(pokemonsFavorites)
+    
+        
+    
+        let ulFavorites = document.querySelector('.fireFavorites')
+        ulFavorites.innerHTML = ""
+        console.log(fireFavorites)
+        fireFavorites.forEach((fireFavorites, index)=>{
+            // if(pokemonsFavorites.type == "water"){
+                console.log(fireFavorites.name)
+                ulFavorites.innerHTML += `<li class="card-favorites" onclick="remove(${index})">
+                <img class = "card-image-favorites" src="${fireFavorites.picture}" alt="${fireFavorites.name}">
+                <h2 class="card-title-favorites"> ${fireFavorites.name} </h2>
+                </li>`    
+            // } 
+        }) 
+    
+    }
     
 fetchPokemonFire()
 
@@ -207,7 +236,7 @@ fetchPokemonFire()
 function efeito(id){
     let element = document.querySelector(`#G${id}`)
 
-    if(element.classList[1] == "efeitoCardInfo"){
+    if(element.classList[2] == "efeitoCardInfo"){
         element.classList.remove("efeitoCardInfo")
     }else{
         element.classList.add("efeitoCardInfo")

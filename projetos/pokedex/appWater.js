@@ -1,4 +1,5 @@
 const fetchPokemonWater = () =>{
+    console.log("FETCH")
     const getPokemonURL = id => `https://pokeapi.co/api/v2/pokemon/${id}`
 
     const pokemonPromises = []
@@ -18,14 +19,14 @@ const fetchPokemonWater = () =>{
     }).then((waterPokemons)=>{
         let ul = document.querySelector('.pokedexWater')
         for(i=0;i<waterPokemons.length;i++){
-            ul.innerHTML += `<li class="card grass">
+            ul.innerHTML += `<li class="grass">
          
             <div class="card"  onclick="select(${waterPokemons[i].id})" )">
             <img class = "card-image" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${waterPokemons[i].id}.png" alt="${waterPokemons[i].name}">
             <h2 class="card-title" > ${waterPokemons[i].name}</h2>
             </div>
             <div><img class = "card-image-info" src="img/icons8-informações-25.png" alt="info" onclick="efeito(${waterPokemons[i].id})"></div>
-            <div class="cardInfo" id = "G${waterPokemons[i].id}" >
+            <div class="cardInfo infoWater" id = "G${waterPokemons[i].id}" >
             <div class="type-close"><p class="card-class">Tipo: ${waterPokemons[i].types[0].type.name}  </p> <img class = "card-image-close" src="img/icons8-macos-close-20.png" alt="info" onclick="efeito(${waterPokemons[i].id})"></div>
             <p class="card-ability" id= "P${waterPokemons[i].id}" >Habilidades:<br> </p>
             
@@ -34,7 +35,7 @@ const fetchPokemonWater = () =>{
             
         </li>`
 
-            console.log(i + waterPokemons[0].abilities.length)
+            
             for(cont=0;cont< waterPokemons[i].abilities.length;cont++){
                 let Ability = waterPokemons[i].abilities[cont].ability.name[0].toUpperCase() + waterPokemons[i].abilities[cont].ability.name.substr(1)
             
@@ -59,13 +60,13 @@ const fetchPokemonWater = () =>{
             let ul = document.querySelector('.pokedexWater')
             ul.innerHTML = ""
             searchPokemon.forEach((searchPokemon, index)=>{
-                ul.innerHTML += `<li class="card grass" >
+                ul.innerHTML += `<li class="grass" >
                 <div class="card"  onclick="select(${searchPokemon.id})" )">
                 <img class = "card-image" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${searchPokemon.id}.png" alt="${searchPokemon.name}">
                 <h2 class="card-title" > ${searchPokemon.name}</h2>
                 </div>
                 <div><img class = "card-image-info" src="img/icons8-informações-25.png" alt="info" onclick="efeito(${searchPokemon.id})"></div>
-                <div class="cardInfo" id = "G${searchPokemon.id}" >
+                <div class="cardInfo infoWater" id = "G${searchPokemon.id}" >
                 <div class="type-close"><p class="card-class">Tipo: ${searchPokemon.types[0].type.name}  </p> <img class = "card-image-close" src="img/icons8-macos-close-20.png" alt="info" onclick="efeito(${searchPokemon.id})"></div>
                 <p class="card-ability" id= "P${searchPokemon.id}">Habilidades:<br> </p>
                 <div id="F${searchPokemon.id}" class="card-ability-detail"></div>
@@ -101,6 +102,8 @@ let pokemonsFavorites = JSON.parse(localStorage.getItem("pokemonsFavorites"))
 if(pokemonsFavorites == null){
     localStorage.setItem("pokemonsFavorites", "[]")
     pokemonsFavorites = []
+}else{
+    back()
 }
 
 function select(index){
@@ -129,51 +132,49 @@ function select(index){
                 picture: data.sprites.front_default,
                 pokemonabilities: abilities
             }
-            waterFavorites.push(pokemonSelected)       
+            waterFavorites.push(pokemonSelected) 
+        
         }else{
         window.alert("Maximo de 3 pokemons atingidos")
     }
         console.log(waterFavorites)
-
+        console.log(pokemonsFavorites)
     }).then(()=>{
         let ulFavorites = document.querySelector('.waterFavorites')
         ulFavorites.innerHTML = ""
         waterFavorites.forEach((waterFavorites, index)=>{
-                ulFavorites.innerHTML += `<li class="card" onclick="remove(${index})">
-                <img class = "card-image" src="${waterFavorites.picture}" alt="${waterFavorites.name}">
-                <h2 class="card-title"> ${waterFavorites.name} </h2>
+            
+                ulFavorites.innerHTML += `<li class="card-favorites" onclick="remove(${index})">
+                <img class = "card-image-favorites" src="${waterFavorites.picture}" alt="${waterFavorites.name}">
+                <h2 class="card-title-favorites"> ${waterFavorites.name} </h2>
                 </li>`
-                    
+            
+                
         })
-
-    
     })
-       
-
-
 }
 
 function remove(index){
-
-    console.log('cliquei no: ' + index)
-
     waterFavorites.splice(index,1)
     
     let ulFavorites = document.querySelector('.waterFavorites')
     ulFavorites.innerHTML = ""
-    console.log(waterFavorites)
     waterFavorites.forEach((waterFavorites, index)=>{
-        ulFavorites.innerHTML += `<li class="card" onclick="remove(${index})">
-        <img class = "card-image" src="${waterFavorites.picture}" alt="${waterFavorites.name}">
-        <h2 class="card-title"> ${waterFavorites.name} </h2>
-        </li>` 
-        })
+        
+            ulFavorites.innerHTML += `<li class="card-favorites" onclick="remove(${index})">
+        <img class = "card-image-favorites" src="${waterFavorites.picture}" alt="${waterFavorites.name}">
+        <h2 class="card-title-favorites"> ${waterFavorites.name} </h2>
+        </li>`
+        
+         
+    })
 
-    }
+}
 
 
 function next(){        
     
+
     if(waterFavorites.length == 3){
         waterFavorites.forEach((waterFavorites)=>{
             pokemonsFavorites.push(waterFavorites)
@@ -208,13 +209,40 @@ function abilitiesDetails(abilityName, id){
     })
 }
 
+function back(){
+    // window.location = 'waterpokemons.html'
+    console.log(pokemonsFavorites)
+    let otherFavorites = JSON.parse(localStorage.getItem("pokemonsFavorites"))
+    waterFavorites = pokemonsFavorites.filter((pokemons) => pokemons.type === "water")
+    pokemonsFavorites = otherFavorites.filter((pokemons) => pokemons.type != "water")
+    localStorage.setItem("pokemonsFavorites", "[]")
+    localStorage.setItem("pokemonsFavorites", JSON.stringify(pokemonsFavorites))
+    console.log(pokemonsFavorites)
+
+    
+
+    let ulFavorites = document.querySelector('.waterFavorites')
+    ulFavorites.innerHTML = ""
+    console.log(waterFavorites)
+    waterFavorites.forEach((waterFavorites, index)=>{
+        // if(pokemonsFavorites.type == "water"){
+            console.log(waterFavorites.name)
+            ulFavorites.innerHTML += `<li class="card-favorites" onclick="remove(${index})">
+            <img class = "card-image-favorites" src="${waterFavorites.picture}" alt="${waterFavorites.name}">
+            <h2 class="card-title-favorites"> ${waterFavorites.name} </h2>
+            </li>`    
+        // } 
+    }) 
+
+}
+
 fetchPokemonWater()
 
 
 function efeito(id){
 let element = document.querySelector(`#G${id}`)
 
-if(element.classList[1] == "efeitoCardInfo"){
+if(element.classList[2] == "efeitoCardInfo"){
     element.classList.remove("efeitoCardInfo")
 }else{
     element.classList.add("efeitoCardInfo")

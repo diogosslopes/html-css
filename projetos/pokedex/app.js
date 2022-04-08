@@ -18,7 +18,7 @@ const fetchPokemon = () =>{
         let ul = document.querySelector('.pokedexGrass')
         for(i=0;i<grassPokemons.length;i++){
        
-        ul.innerHTML += `<li class="card grass">
+        ul.innerHTML += `<li class="grass">
          
             <div class="card"  onclick="select(${grassPokemons[i].id})" )">
             <img class = "card-image" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${grassPokemons[i].id}.png" alt="${grassPokemons[i].name}">
@@ -58,7 +58,7 @@ const fetchPokemon = () =>{
             let ul = document.querySelector('.pokedexGrass')
             ul.innerHTML = ""
             searchPokemon.forEach((searchPokemon, index)=>{
-                ul.innerHTML += `<li class="card grass" >
+                ul.innerHTML += `<li class="grass" >
                 <div class="card"  onclick="select(${searchPokemon.id})" )">
                 <img class = "card-image" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${searchPokemon.id}.png" alt="${searchPokemon.name}">
                 <h2 class="card-title" > ${searchPokemon.name}</h2>
@@ -97,9 +97,16 @@ let pokemonSelected =  {
 
 let pokemonsFavorites = JSON.parse(localStorage.getItem("pokemonsFavorites"))
 
-
+if(pokemonsFavorites == null){
     localStorage.setItem("pokemonsFavorites", "[]")
     pokemonsFavorites = []
+}else{
+    back()
+}
+
+    
+    // localStorage.setItem("pokemonsFavorites", "[]")
+    // pokemonsFavorites = []
 
 
 function select(index){
@@ -138,9 +145,9 @@ function select(index){
         let ulFavorites = document.querySelector('.favorites')
         ulFavorites.innerHTML = ""
         grassFavorites.forEach((grassFavorites, index)=>{
-            ulFavorites.innerHTML += `<li class="card" onclick="remove(${index})">
-            <img class = "card-image" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${grassFavorites.id}.png" alt="${grassFavorites.name}">
-            <h2 class="card-title"> ${grassFavorites.name} </h2>
+            ulFavorites.innerHTML += `<li class="card-favorites" onclick="remove(${index})">
+            <img class = "card-image-favorites" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${grassFavorites.id}.png" alt="${grassFavorites.name}">
+            <h2 class="card-title-favorites"> ${grassFavorites.name} </h2>
             </li>`           
         })
     })
@@ -152,9 +159,9 @@ function remove(index){
     let ulFavorites = document.querySelector('.favorites')
     ulFavorites.innerHTML = ""
     grassFavorites.forEach((grassFavorites, index)=>{
-        ulFavorites.innerHTML += `<li class="card" onclick="remove(${index})">
-        <img class = "card-image" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${grassFavorites.id}.png" alt="${grassFavorites.name}">
-        <h2 class="card-title"> ${grassFavorites.name} </h2>
+        ulFavorites.innerHTML += `<li class="card-favorites" onclick="remove(${index})">
+        <img class = "card-image-favorites" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${grassFavorites.id}.png" alt="${grassFavorites.name}">
+        <h2 class="card-title-favorites"> ${grassFavorites.name} </h2>
         </li>` 
         })
 
@@ -199,7 +206,7 @@ function abilitiesDetails(abilityName, id){
 
 
 fetchPokemon()
-
+// back()
 
 function efeito(id){
     let element = document.querySelector(`#G${id}`)
@@ -209,6 +216,34 @@ function efeito(id){
     }else{
         element.classList.add("efeitoCardInfo")
     }
+
+}
+
+
+function back(){
+    // window.location = 'waterpokemons.html'
+    console.log(pokemonsFavorites)
+    let otherFavorites = JSON.parse(localStorage.getItem("pokemonsFavorites"))
+    grassFavorites = pokemonsFavorites.filter((pokemons) => pokemons.type === "grass")
+    pokemonsFavorites = otherFavorites.filter((pokemons) => pokemons.type != "grass")
+    localStorage.setItem("pokemonsFavorites", "[]")
+    localStorage.setItem("pokemonsFavorites", JSON.stringify(pokemonsFavorites))
+    console.log(pokemonsFavorites)
+
+    
+
+    let ulFavorites = document.querySelector('.favorites')
+    ulFavorites.innerHTML = ""
+    console.log(grassFavorites)
+    grassFavorites.forEach((grassFavorites, index)=>{
+        // if(pokemonsFavorites.type == "water"){
+            console.log(grassFavorites.name)
+            ulFavorites.innerHTML += `<li class="card-favorites" onclick="remove(${index})">
+            <img class = "card-image-favorites" src="${grassFavorites.picture}" alt="${grassFavorites.name}">
+            <h2 class="card-title-favorites"> ${grassFavorites.name} </h2>
+            </li>`    
+        // } 
+    }) 
 
 }
 

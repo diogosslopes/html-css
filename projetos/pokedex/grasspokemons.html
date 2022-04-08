@@ -7,38 +7,56 @@
   <link href="https://fonts.googleapis.com/css?family=Rubik&display=swap" rel="stylesheet" />
 </head>
 <body class="bodyGrass">
-
+  <header>
+    <h2>Escolha os seus 3 pokemons favoritos.</h2>
+  </header>
   <main>
-    <div class="mainContainer">
-      <h1 class="pokemonType">Pokemons tipo Planta</h1>
-      <h2>Escolha os seus 3 pokemons favoritos.</h2>
-      <input type="text" name="search" id="search">
-      <ul data-js="pokedex" class="pokedex pokedexGrass">
-    
-          <!-- <li class="card grass" onclick="">
-              <div class="card" onmouseenter="efeito()" onmouseleave="efeito()">
-                <img class = "card-image" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/132.png" alt="" >
-                <h2 class="card-title">25 teste</h2>
-                <img class = 'imgcard'src="fdsf" alt="teste">
-              </div>
-              <div class="cardInfo">
-                <img class = "card-image" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/132.png" alt="">
-                <h2 class="card-title">25 infos do teste</h2>
-              </div>        
-
-           </li> -->
-      </ul>
+    <div class="pokedex-size">
+      <div class="mainContainer">
+        <h3 class="pokemonType">Pokemons tipo Planta</h3>
+        <div class="list">
+          <ul data-js="pokedex" class="pokedex pokedexGrass">
+              <!-- <li class="grass" onclick="">
+                  <div class="card" onmouseenter="efeito()" onmouseleave="efeito()">
+                    <img class = "card-image" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/132.png" alt="" >
+                    <h2 class="card-title">Charmander</h2>
+      
+                  </div>
+                </li>
+                <li class="grass" onclick="">
+                  <div class="card" onmouseenter="efeito()" onmouseleave="efeito()">
+                    <img class = "card-image" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/132.png" alt="" >
+                    <h2 class="card-title">Charmileon</h2>
+      
+                  </div>
+                </li> -->
+          </ul>
+        </div>
+        <input type="text" name="search" id="search">
+        
+      </div>
+        <div class="container">
+        <div>
+          <h2 class="h2-favorites">Favoritos</h2>
+          <ul data-js="pokedex" class="pokedex favorites">
+                   <!-- <li class="card-favorites grass" onclick="">
+                  <img class = "card-image-favorites" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/132.png" alt="">
+                  <h2 class="card-title-favorites">teste</h2>
+                  </li>
+                  <li class="card-favorites grass" onclick="">
+                    <img class = "card-image-favorites" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/132.png" alt="">
+                    <h2 class="card-title-favorites">teste</h2>
+                    </li>
+                    <li class="card-favorites grass" onclick="">
+                      <img class = "card-image-favorites" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/132.png" alt="">
+                      <h2 class="card-title-favorites">teste</h2>
+                      </li> -->
+          </ul>
+        </div>
+        
+      </div>
     </div>
-    <div class="container">
-      <h1>Favoritos</h1>
-      <ul data-js="pokedex" class="pokedex favorites">
-               <!-- <li class="card grass" onclick="">
-              <img class = "card-image" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/132.png" alt="">
-              <h2 class="card-title">teste</h2>
-          </li> -->
-      </ul>
-      <button onclick="next()">Avançar </button>
-    </div>
+    <button class="next" onclick="next()"> <img src="img/botaoentrar.png" alt="Avançar" > Avançar </button>
   </main>
 
   <script src="./app.js"></script>

@@ -17,28 +17,96 @@ body {
 	background: linear-gradient(to right, rgb(248, 248, 246),rgb(106, 73, 255), rgb(87, 5, 238), rgb(34, 1, 179));
 }
 
+header{
+	margin: 0;
+	padding: 0;
+}
 
+header h1{
+	margin: 0;
+	padding: 0;
+}
+
+.h2-favorites{
+	margin: 0;
+}
+
+.h3-favorites{
+	color: #222;
+	margin: 0;
+	padding: 0;
+}
 
 main{
-	display: flex;
-	max-width: 97vw;
+	background: url(img/Pokedex\ \(1\).png) center no-repeat;
+	background-size: 87%;
+	/* display: flex; */
+	flex-direction: column;
+	/* gap: 155px; */
+	max-width: 68vw;
 	height: 97vh;
 	margin: auto
 }
 
+#first-page{
+	background: url(img/pokedexinicio.png) center no-repeat;
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+	width: 340px;
+	height: 500px;
+}
+
 .mainContainer {
-	padding: 40px;
-	width: 70%;
-	margin: 0 auto;
+	/* position: relative;
+	top: 112px;
+	left: 91px; */
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	margin-top: 20px;
+	width: 100%;
+	height: 100%;
+}
+.list{
+	display: flex;
+	max-width: 332px;
+	max-height: 336px;
+	margin-bottom: 15px;
+	margin-left: 10px;
 	overflow-y: scroll;
+	overflow-x: clip;
+}
+
+.listFavorites {
+	display: flex;
+	flex-direction: column;
+	max-width: 332px;
+	max-height: 336px;
+	margin-bottom: -19px;
+	margin-left: 10px;
+	overflow-y: scroll;
+	overflow-x: clip;
+	
+}
+
+#search{
+	margin-left: -15px;
+	/* margin-top: 5px; */
+	width: 150px;
 }
 
 .container{
+	/* position: relative;
+	top: 136px; */
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	/* justify-content: space-between; */
 	padding-top: 40px;
-	width: 25%;
+	width: 100%;
+	height: 372px;
 
 }
 
@@ -60,6 +128,46 @@ button{
 	justify-content: center;
 }
 
+.enter{
+	display: flex;
+	position: relative;
+	top: 250px;
+	right: 100px;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	background-color: transparent;
+	padding: 0;
+	margin: 0 0 0 5px;
+	cursor: pointer;
+	
+}
+
+.next{
+	position: relative;
+	/* top: 48px; */
+	left: 100px;
+	display: flex;
+	/* flex-direction: column; */
+	align-items: center;
+	justify-content: center;
+	background-color: transparent;
+	padding: 0;
+	margin: -70px 0 0 5px;
+	cursor: pointer;
+	font-size: 15px;
+	
+}
+
+.next img{
+	width: 8%;
+}
+
+.pokemonType{
+	text-align: right;
+	max-width: 332px;
+}
+
 h1 {
 	text-align: center;
 	font-size: 54px;
@@ -72,16 +180,17 @@ h2{
 .pokedex {
 	display: flex;
 	flex-wrap: wrap;
-	gap: 50px;
-	flex-grow: 0;
+	gap: 15px;
+	/* flex-grow: 0; */
+	padding: 0;
 
 }
 
 .card {
 	display: flex;
-	flex-direction: row-reverse;
 	align-items: center;
-	min-width: 200px;
+	flex-direction: column;
+	width: 100%;
 	list-style: none;
 	padding: 10px;
 	background-color: #f4f4f4;
@@ -92,11 +201,26 @@ h2{
 	
 }
 
+.card-favorites {
+	display: flex;
+	align-items: center;
+	min-width: 200px;
+	list-style: none;
+	background-color: #f4f4f4;
+	color: #222;
+	text-align: center;
+	border-radius: 20px;
+
+	
+}
+
 .grass{
 	display: block;
-	padding: 0;
+	padding-right: 33px;
 	list-style: none;
 	max-height: 100px;
+	max-width: 110px;
+	gap: 10px;
 }
 
 .cardInfo{
@@ -107,9 +231,9 @@ h2{
 	left: 110px;
 	padding: 10px;
 	/* align-items: center; */
-	width: 200px;
+	width: 125px;
 	list-style: none;
-	background-color: #e9343483;
+	background-color: #99b15a;
 	color: #222;
 	/* text-align: center; */
 	border-radius: 20px;
@@ -117,13 +241,21 @@ h2{
 
 }
 
+.infoFire {
+	background-color: #ff524a ;
+}
+
+.infoWater {
+	background-color: #8bacf6 ;
+}
+
 h5{
 	display: inline;
 }
 
 .efeitoCardInfo{
-	left: 130px;
-	bottom: 225px;
+	left: 15px;
+	bottom: 145px;
 	visibility: visible;
 	transition: all .3s ease-out;
 	
@@ -147,8 +279,16 @@ h5{
 
 .card-title {
 	text-transform: capitalize;
-	font-size: 20px;
+	font-size: 15px;
 	font-weight: normal;
+	margin-top: -15px;
+}
+
+.card-title-favorites {
+	text-transform: capitalize;
+	font-size: 15px;
+	font-weight: normal;
+	margin-left: -15px;
 }
 .card-subtitle {
 	margin-top: 5px;
@@ -157,10 +297,15 @@ h5{
 }
 
 .card-image {
-	height: 90px;
+	height: 80px;
+	margin-top: -15px;
+}
+.card-image-favorites {
+	height: 80px;
 }
 
 .card-class{
+	font-size: 12px;
 	margin: 0;
 	margin-bottom: 5px;
 	padding: 0;
@@ -177,11 +322,12 @@ h5{
 	/* position: relative;
 	left: 171px;
 	bottom: 90px; */
-	width: 15%;
-	height: 15%;
+	width: 12%;
+	height: 12%;
 }
 
 .card-ability{
+	font-size: 11px;
 	margin: 0;
 	margin-bottom: 5px;
 	padding: 0;
@@ -192,19 +338,41 @@ h5{
 	position: relative;
 	padding: 0;
 	margin: 0;
-	font-size: 10pt;
+	font-size: 9.5px;
 	text-align: left;
 	/* visibility: hidden; */
 }
 
-.pokedexFavorites{
+/* .pokedexFavorites{
 	margin: auto;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
 	width: 70%;
+} */
+
+.pokedexFavorites {
+    max-width: 332px;
+    max-height: 336px;
+
 }
+
+.pokedex-size {
+    display: flex;
+    width: 90%;
+	height: 100%;
+	gap: 10px;
+    margin: auto;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.buttons{
+	max-width: 412px ;
+	display: flex;
+}
+
 
 @keyframes bounce {
 	20% {

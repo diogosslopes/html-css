@@ -16,13 +16,13 @@ ulFire.innerHTML = ""
 ulWater.innerHTML = ""
         pokemonsFavorites.forEach((pokemonsFavorites, index)=>{
             if(pokemonsFavorites.type == "grass"){
-                ulGrasss.innerHTML += `<li class="card grass favorites">
-                <div class="card"  )">
+                ulGrasss.innerHTML += `<li class="grass favorites">
+                <div class="card">
                 <img class = "card-image" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemonsFavorites.id}.png" alt="${pokemonsFavorites.name}">
                 <h2 class="card-title" > ${pokemonsFavorites.name}</h2>
                 </div>
                 <div><img class = "card-image-info" src="img/icons8-informações-25.png" alt="info" onclick="efeito(${pokemonsFavorites.id})"></div>
-                <div class="cardInfo" id = "G${pokemonsFavorites.id}" >
+                <div class="extra cardInfo" id = "G${pokemonsFavorites.id}" >
                 <div class="type-close"><p class="card-class">Tipo: ${pokemonsFavorites.type}  </p> <img class = "card-image-close" src="img/icons8-macos-close-20.png" alt="info" onclick="efeito(${pokemonsFavorites.id})"></div>
                 <p class="card-ability" id= "P${pokemonsFavorites.id}" >Habilidades:<br> </p>
                 
@@ -39,14 +39,14 @@ ulWater.innerHTML = ""
                     
                 } 
             }else if(pokemonsFavorites.type == "fire"){
-                ulFire.innerHTML += `<li class="card grass">
+                ulFire.innerHTML += `<li class="grass">
          
                 <div class="card"  )">
                 <img class = "card-image" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemonsFavorites.id}.png" alt="${pokemonsFavorites.name}">
                 <h2 class="card-title" > ${pokemonsFavorites.name}</h2>
                 </div>
                 <div><img class = "card-image-info" src="img/icons8-informações-25.png" alt="info" onclick="efeito(${pokemonsFavorites.id})"></div>
-                <div class="cardInfo" id = "G${pokemonsFavorites.id}" >
+                <div class="cardInfo infoFire" id = "G${pokemonsFavorites.id}" >
                 <div class="type-close"><p class="card-class">Tipo: ${pokemonsFavorites.type}  </p> <img class = "card-image-close" src="img/icons8-macos-close-20.png" alt="info" onclick="efeito(${pokemonsFavorites.id})"></div>
                 <p class="card-ability" id= "P${pokemonsFavorites.id}" >Habilidades:<br> </p>
                 
@@ -63,15 +63,15 @@ ulWater.innerHTML = ""
                     
                 }
             }else{
-                ulWater.innerHTML += `<li class="card grass">
+                ulWater.innerHTML += `<li class="grass">
          
                 <div class="card"  )">
                 <img class = "card-image" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemonsFavorites.id}.png" alt="${pokemonsFavorites.name}">
                 <h2 class="card-title" > ${pokemonsFavorites.name}</h2>
                 </div>
                 <div><img class = "card-image-info" src="img/icons8-informações-25.png" alt="info" onclick="efeito(${pokemonsFavorites.id})"></div>
-                <div class="cardInfo" id = "G${pokemonsFavorites.id}" >
-                <div class="type-close"><p class="card-class">Tipo: ${pokemonsFavorites.type}  </p> <img class = "card-image-close" src="img/icons8-macos-close-20.png" alt="info" onclick="efeito(${pokemonsFavorites.id})"></div>
+                <div class="cardInfo infoWater" id = "G${pokemonsFavorites.id}" >
+                <div class="type-close"><p class="card-class water">Tipo: ${pokemonsFavorites.type}  </p> <img class = "card-image-close" src="img/icons8-macos-close-20.png" alt="info" onclick="efeito(${pokemonsFavorites.id})"></div>
                 <p class="card-ability" id= "P${pokemonsFavorites.id}" >Habilidades:<br> </p>
                 
                 <div id="D${pokemonsFavorites.id}" class="card-ability-detail"></div>
@@ -118,10 +118,35 @@ function abilitiesDetails(abilityName, id){
 function efeito(id){
     let element = document.querySelector(`#G${id}`)
 
-    if(element.classList[1] == "efeitoCardInfo"){
+    if(element.classList[2] == "efeitoCardInfo"){
         element.classList.remove("efeitoCardInfo")
     }else{
         element.classList.add("efeitoCardInfo")
     }
+
+}
+
+
+function back(){
+    window.location = 'waterpokemons.html'
+    let pokemonsFavorites = JSON.parse(localStorage.getItem("pokemonsFavorites"))
+
+    if(pokemonsFavorites == null){
+        localStorage.setItem("pokemonsFavorites", "[]")
+        pokemonsFavorites = []
+    }
+
+    if(pokemonsFavorites.type == "water"){
+        let ulFavorites = document.querySelector('.waterFavorites')
+        ulFavorites.innerHTML = ""
+        pokemonsFavorites.forEach((pokemonsFavorites, index)=>{
+                ulFavorites.innerHTML += `<li class="card-favorites" onclick="remove(${index})">
+                <img class = "card-image-favorites" src="${pokemonsFavorites.picture}" alt="${pokemonsFavorites.name}">
+                <h2 class="card-title-favorites"> ${pokemonsFavorites.name} </h2>
+                </li>`
+        })
+    }
+
+ 
 
 }
