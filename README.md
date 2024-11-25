@@ -1,7 +1,7 @@
 # html-css
  html-css
 
-<h1>Alguns projetos e desafios</h1>
+<h1>Alguns projetos e desafios desenvolvidos em HTML e CSS</h1>
 
 <ul>
 <li><a href= "https://diogosslopes.github.io/html-css/projetos/pokedex/index.html" target="_blank" rel="external">Pokedex</a></li>
